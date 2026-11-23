@@ -1,0 +1,9 @@
+/PowerPaint
+obj/
+dist/
+*.hpkg
+*.AppImage
+.cosmoe/
+.haiku-headers
+compile_flags.txt
+.haiku-arm64/
