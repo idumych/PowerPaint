@@ -15,6 +15,11 @@
 #include <Screen.h>
 #include <Window.h>
 
+#ifdef APP_VOS
+// V\OS's own about window; the header is a copy of V\OS's private one (src/ui/vos)
+#include <AboutWindow.h>
+#endif
+
 #include <stdio.h>
 #include <string.h>
 
@@ -219,6 +224,16 @@ PaintApp::QuitRequested()
 void
 PaintApp::AboutRequested()
 {
+#ifdef APP_VOS
+	BAboutWindow* about = new BAboutWindow(B_TRANSLATE_SYSTEM_NAME("PowerPaint"),
+		APP_SIGNATURE);
+	about->AddDescription(B_TRANSLATE("A native Haiku port of JS Paint by "
+		"Isaiah Odhner, a remake of MS Paint."));
+	const char* extraCopyrights[] = { "2026 the PowerPaint contributors", NULL };
+	about->AddCopyright(2022, "Isaiah Odhner (JS Paint)", extraCopyrights);
+	about->AddExtraInfo(B_TRANSLATE("Distributed under the terms of the MIT License."));
+	about->Show();
+#else
 	BAlert* alert = new BAlert(B_TRANSLATE("About PowerPaint"),
 		B_TRANSLATE("PowerPaint\n\n"
 			"A native Haiku port of JS Paint by Isaiah Odhner, "
@@ -228,6 +243,7 @@ PaintApp::AboutRequested()
 		B_TRANSLATE("OK"));
 	alert->SetFlags(alert->Flags() | B_CLOSE_ON_ESCAPE);
 	alert->Go(NULL);
+#endif
 }
 
 
