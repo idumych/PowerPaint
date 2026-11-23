@@ -6,6 +6,19 @@ Isaiah Odhner's web remake of MS Paint. It is written in C++ against the
 Haiku API (no browser, no web runtime), keeps JS Paint's layout, tools and
 sizes, and follows Haiku's conventions for menus, shortcuts and alerts.
 
+Platforms
+---------
+
+| Platform | Package | Status |
+|---|---|---|
+| Haiku R1/beta6 and Renku OS, x86_64 | `.hpkg` | not yet tested for this release |
+| Renku OS, arm64 | `.hpkg` | not yet tested for this release |
+| VitruvianOS (V\OS, a BeOS-like OS based on Linux), amd64 and arm64 | `.deb` | not yet tested for this release |
+| Linux (X11 and Wayland, through [Hokku](https://github.com/idumych/hokku)), x86_64 and aarch64 | AppImage | not yet tested for this release |
+
+On V\OS, About PowerPaint opens V\OS's own about window; on Haiku and Linux
+it is an alert.
+
 ![PowerPaint on Haiku R1/beta6](docs/screenshots/haiku-main-window.png)
 
 Haiku R1/beta6: a picture drawn with PowerPaint's own tools, the sun selected.
@@ -82,6 +95,12 @@ On Haiku, with `gcc`, `make` and `haiku_devel`:
     sh tests/smoke.sh   # drives the app itself through --do (quit it first)
     make install    # into ~/config/non-packaged/apps
 
+On VitruvianOS, `make` with its development headers (`pkg-config vos`, or
+`/system/develop/headers`); release `.deb`s are built in CI against a
+link-time V\OS SDK (`tools/vos-sdk/`, `.github/workflows/deb.yml`). On other
+Linux systems, `make COSMOE_ROOT=<prefix>` with Hokku installed there; release
+AppImages come from `.github/workflows/appimage.yml`.
+
 On another OS, `sh tools/haiku-typecheck.sh` checks the Haiku code against
 Haiku's headers without building it.
 
@@ -95,6 +114,11 @@ Layout of the source:
   box, status bar, dialogs and the Fonts toolbar.
 - `images/` — tool icons and pointers from JS Paint.
 - `tools/make-icon.py` — writes the app's vector icon into the `.rdef`.
+- `src/ui/vos/AboutWindow.h` — a copy of V\OS's private `BAboutWindow` header
+  (MIT, Haiku, Inc.), used only in V\OS builds: V\OS's SDK leaves out its
+  private headers.
+- `packaging/`, `release/test-plan.md` — packages for every platform and how
+  each release is tested.
 
 Testing
 -------

@@ -7,3 +7,5 @@ dist/
 .haiku-headers
 compile_flags.txt
 .haiku-arm64/
+*.deb
+.vos-sdk/

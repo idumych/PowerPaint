@@ -1,0 +1,3 @@
+PowerPaint is a native port of JS Paint, Isaiah Odhner's web remake of MS Paint, written in C++ against the Haiku API: no browser, no web runtime. It keeps JS Paint's layout, tools and sizes, and follows Haiku's conventions for menus, shortcuts and alerts.
+
+All sixteen MS Paint tools with their options, selections you can move, resize, copy and smear, flip, rotate, stretch and skew, invert colours, the 28-colour palette with palette files, a text tool with a Fonts toolbar, zoom up to 1000% with a pixel grid, undo and redo. Pictures open and save in every format the system's translators handle.
