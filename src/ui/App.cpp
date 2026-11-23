@@ -229,8 +229,10 @@ PaintApp::AboutRequested()
 		APP_SIGNATURE);
 	about->AddDescription(B_TRANSLATE("A native Haiku port of JS Paint by "
 		"Isaiah Odhner, a remake of MS Paint."));
-	const char* extraCopyrights[] = { "2026 the PowerPaint contributors", NULL };
-	about->AddCopyright(2022, "Isaiah Odhner (JS Paint)", extraCopyrights);
+	// AddCopyright() runs the first year up to the current one, so the
+	// contributors come first and JS Paint's fixed 2022 line is an extra.
+	const char* extraCopyrights[] = { "2022 Isaiah Odhner (JS Paint)", NULL };
+	about->AddCopyright(2026, "the PowerPaint contributors", extraCopyrights);
 	about->AddExtraInfo(B_TRANSLATE("Distributed under the terms of the MIT License."));
 	about->Show();
 #else

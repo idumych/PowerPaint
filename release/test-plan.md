@@ -68,11 +68,13 @@ Close it (Haiku/Linux: the **OK** button; V\OS: the window's close button or Esc
 What appears differs by platform, on purpose:
 
 - **V\OS:** V\OS's own about window (`BAboutWindow`): the app icon, "PowerPaint",
-  the version "0.1.0", the description, "© 2022 Isaiah Odhner (JS Paint)" and
-  "2026 the PowerPaint contributors", and the MIT line.
+  "Version 0.1" (it leaves out a zero third number; "-development" after it means the
+  .rdef's variety isn't `B_APPV_FINAL`), the description, "© 2026 the PowerPaint
+  contributors", "© 2022 Isaiah Odhner (JS Paint)", "All Rights Reserved." (added by
+  `BAboutWindow`) and the MIT line, with an **OK** button.
 - **Haiku, Linux:** an alert titled "About PowerPaint" with the description, the
   JS Paint copyright and the MIT line, and an **OK** button.
 
-PASS when: `{p}-about.txt` has `Odhner`, and on V\OS also `0.1.0` (the version
-`BAboutWindow` reads from the app's resources: it proves the V\OS window, not
-the alert, was shown). Look at the screenshot too.
+PASS when: `{p}-about.txt` has `Odhner`, and on V\OS also `Version 0.1` and not
+`development` (the version `BAboutWindow` reads from the app's resources: it proves
+the V\OS window, not the alert, was shown). Look at the screenshot too.
