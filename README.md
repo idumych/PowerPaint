@@ -21,8 +21,6 @@ it is an alert.
 
 ![PowerPaint on Haiku R1/beta6](docs/screenshots/haiku-main-window.png)
 
-Haiku R1/beta6: a picture drawn with PowerPaint's own tools, the sun selected.
-
 Features
 --------
 
@@ -56,6 +54,24 @@ Features
   with a message instead of exhausting Haiku's memory.
 - Undo and redo, and the tool, colours, palette, options and window frame are
   remembered between runs.
+
+Screenshots
+-----------
+
+The same picture, drawn with PowerPaint's own tools (fill, rectangles, an ellipse,
+a rounded rectangle and lines), the Rectangle tool selected with its fill styles:
+
+![Haiku R1/beta6](docs/screenshots/haiku-main-window.png)
+
+Haiku R1/beta6.
+
+![VitruvianOS 0.6.3](docs/screenshots/vos-main-window.png)
+
+VitruvianOS 0.6.3.
+
+![Linux, X11](docs/screenshots/linux-main-window.png)
+
+Linux (X11, Openbox), from the AppImage.
 
 What's different from JS Paint
 ------------------------------
