@@ -9,12 +9,14 @@ sizes, and follows Haiku's conventions for menus, shortcuts and alerts.
 Platforms
 ---------
 
-| Platform | Package | Status |
+| Platform | Package | Tested for 0.1.0 |
 |---|---|---|
-| Haiku R1/beta6 and Renku OS, x86_64 | `.hpkg` | not yet tested for this release |
-| Renku OS, arm64 | `.hpkg` | not yet tested for this release |
-| VitruvianOS (V\OS, a BeOS-like OS based on Linux), amd64 and arm64 | `.deb` | not yet tested for this release |
-| Linux (X11 and Wayland, through [Hokku](https://github.com/idumych/hokku)), x86_64 and aarch64 | AppImage | not yet tested for this release |
+| Haiku R1/beta6, x86_64 | `.hpkg` | installed and run in a Haiku R1/beta6 VM; also installs on Renku OS x86_64 (not tested there) |
+| Renku OS, arm64 | `.hpkg` | built and checked statically only; not run (no arm64 test machine here) |
+| VitruvianOS (V\OS, a BeOS-like OS based on Linux), amd64 | `.deb` | installed and run on V\OS 0.6.3 in a VM |
+| VitruvianOS, arm64 | `.deb` | built on an arm64 CI runner and checked statically only; not run |
+| Linux (X11 and Wayland, through [Hokku](https://github.com/idumych/hokku)), x86_64 | AppImage | run under Xvfb (X11) here, and started in CI under X11 and headless Wayland |
+| Linux, aarch64 | AppImage | started in CI on an arm64 runner under X11 and headless Wayland only |
 
 On V\OS, About PowerPaint opens V\OS's own about window; on Haiku and Linux
 it is an alert.
